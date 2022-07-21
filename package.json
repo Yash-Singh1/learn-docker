@@ -1,0 +1,16 @@
+{
+  "name": "learn-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/app.js"
+  },
+  "keywords": [],
+  "author": "Yash Singh",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  }
+}
