@@ -1,15 +1,20 @@
-FROM node:16-alpine3.15
+FROM node:16.16.0-bullseye-slim
 
 WORKDIR /app
 
-RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
+RUN npm --silent install --global --depth 0 pnpm
 
-RUN exec sh && pnpm install --frozen-lockfile --prod
+RUN npm install --location=global nodemon
 
-COPY . .
+COPY package.json pnpm-lock.yaml ./
+
+RUN pnpm install --frozen-lockfile --prod
+
+COPY . /app
+
 
 # Specify what port to expose by container
 EXPOSE 4000
 
 # CMD instruction is for runtime, RUN instruction is for build time
-CMD ["node", "api/app.js"]
+CMD ["pnpm", "run", "dev"]
