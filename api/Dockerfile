@@ -12,7 +12,6 @@ RUN pnpm install --frozen-lockfile --prod
 
 COPY . /app
 
-
 # Specify what port to expose by container
 EXPOSE 4000
 

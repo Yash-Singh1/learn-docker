@@ -1,10 +1,20 @@
 version: '3'
 services:
   api:
-    build: '.'
+    build: './api'
     container_name: api_c
     ports:
       - '4000:4000'
     volumes:
-      - '.:/app'
+      - './api:/app'
       - '/app/node_modules'
+  blog:
+    build: './blog'
+    container_name: blog_c
+    ports:
+      - '3000:3000'
+    volumes:
+      - './blog:/app'
+      - '/app/node_modules'
+    stdin_open: true
+    tty: true
